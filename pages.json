@@ -4,28 +4,28 @@
 		{
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "",
+
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/cate/cate",
 			"style": {
-				"navigationBarTitleText": "",
+
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/cart/cart",
 			"style": {
-				"navigationBarTitleText": "",
+
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/my/my",
 			"style": {
-				"navigationBarTitleText": "",
+
 				"enablePullDownRefresh": false
 			}
 
@@ -35,34 +35,30 @@
 		"root": "subpkg",
 		"pages": [
 
-		{
-                    "path" : "goods_detail/goods_detail",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "goods_list/goods_list",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+			{
+				"path": "goods_detail/goods_detail",
+				"style": {
+
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "goods_list/goods_list",
+				"style": {
+					"backgroundColor": "#f8f8f8",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 150
+				}
+
+			}, {
+				"path": "search/search",
+				"style": {
+
+					"enablePullDownRefresh": false
+				}
+
+			}
+		]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
