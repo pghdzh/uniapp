@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view class="search-box">
+			<my-search @click='gotoSearch'></my-search>
+		</view>
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="(item ,i) in swiperList" :key="i">
 				<navigator class="swiper-item" :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id">
@@ -23,12 +26,13 @@
 						<image :src="item.product_list[0].image_src"
 							:style="{width:item.product_list[0].image_width+'rpx'}" mode="widthFix"></image>
 					</navigator>
-						<view class="right-img-box">
-							<navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key='i2' v-if="i2 !== 0" :url="item2.url">
-								<image :src="item2.image_src" mode="widthFix" :style="{width:item2.image_width + 'rpx'}">
-								</image>
-							</navigator>
-						</view>
+					<view class="right-img-box">
+						<navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key='i2'
+							v-if="i2 !== 0" :url="item2.url">
+							<image :src="item2.image_src" mode="widthFix" :style="{width:item2.image_width + 'rpx'}">
+							</image>
+						</navigator>
+					</view>
 				</view>
 
 
@@ -77,9 +81,9 @@
 				if (res.meta.status != 200) {
 					return uni.$showMsg()
 				}
-				res.message.forEach(floor=>{
-					floor.product_list.forEach(prod=>{
-						prod.url = '/subpkg/goods_list/goods_list?'+prod.navigator_url.split('?')[1]
+				res.message.forEach(floor => {
+					floor.product_list.forEach(prod => {
+						prod.url = '/subpkg/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
 					})
 				})
 				this.floorList = res.message
@@ -90,6 +94,11 @@
 						url: '/pages/cate/cate'
 					})
 				}
+			},
+			gotoSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
 			}
 
 		}
@@ -97,6 +106,11 @@
 </script>
 
 <style lang="scss">
+	.search-box{
+		position: sticky;
+		top: 0;
+		z-index: 99;
+	}
 	swiper {
 		height: 330rpx;
 
@@ -125,11 +139,11 @@
 		display: flex;
 	}
 
-	
-	.right-img-box{
+
+	.right-img-box {
 		display: flex;
 		flex-wrap: wrap;
-		
+
 	}
 
 	.floor-img-box {
